@@ -1,0 +1,9 @@
+.container {
+  background-image: url(../assets/images/bg-sidebar-desktop.svg);
+  background-size: cover;
+  /* background-color: blueviolet; */
+  width: 27.5rem;
+  padding: 4rem 3rem;
+  border-radius: 1rem;
+  /* margin-right: 10rem; */
+}

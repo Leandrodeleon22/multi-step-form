@@ -1,5 +1,8 @@
+import "normalize.css";
+import PersonalInfo from "./PAGES/PersonalInfo";
+
 function App() {
-  return <div>test</div>;
+  return <PersonalInfo />;
 }
 
 export default App;

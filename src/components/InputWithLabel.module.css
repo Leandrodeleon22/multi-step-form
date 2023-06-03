@@ -1,0 +1,28 @@
+.inputWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.input {
+  background-color: white;
+  border: 1px solid var(--cool-gray);
+  color: var(--cool-gray);
+  border-radius: 0.5rem;
+  height: 4.6rem;
+  font-size: 1.4rem;
+  margin-bottom: 2.5rem;
+  font-weight: 500;
+  padding: 0 1rem 0 1rem;
+}
+
+label {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  color: var(--marine-blue);
+  text-transform: capitalize;
+  font-weight: 300;
+}
+
+input::placeholder {
+  color: var(--light-gray);
+}

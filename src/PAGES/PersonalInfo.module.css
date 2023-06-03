@@ -1,0 +1,9 @@
+.container {
+  display: flex;
+  background-color: var(--white);
+  /* width: 94rem; */
+  height: 60rem;
+  border-radius: 1rem;
+  /* overflow: hidden; */
+  padding: 1.5rem 10rem 1.5rem 1.5rem;
+}
