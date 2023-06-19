@@ -32,4 +32,10 @@
 .number {
   font-size: 1.3rem;
   color: var(--white);
+  font-weight: 700;
+}
+
+.active {
+  background-color: var(--pastel-blue);
+  color: var(--marine-blue);
 }

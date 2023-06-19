@@ -1,25 +1,31 @@
 import classes from "./PersonalDetails.module.css";
 import InputWithLabel from "./InputWithLabel";
-
-import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  nameInput,
+  emailInput,
+  phoneInput,
+  nextStep,
+} from "../features/personal-info/personalInfoSlice";
+import Button from "./ButtonNext";
 
 const PersonalDetails = () => {
-  const [nameValue, setNameValue] = useState("");
-  const [emailValue, setEmailValue] = useState("");
-  const [numberValue, setNumberValue] = useState("");
-
-  console.log(nameValue, emailValue, numberValue);
+  const dispatch = useDispatch();
+  const { name, phone, email } = useSelector((store) => store.personalInfo);
+  // const [nameValue, setNameValue] = useState("");
+  // const [emailValue, setEmailValue] = useState("");
+  // const [numberValue, setNumberValue] = useState("");
 
   const handleNameChange = (e) => {
     const value = e.target.value;
 
-    setNameValue(value);
+    dispatch(nameInput(value));
   };
 
   const handleEmailChange = (e) => {
     const value = e.target.value;
 
-    setEmailValue(value);
+    dispatch(emailInput(value));
   };
 
   const handleNumberChange = (e) => {
@@ -29,10 +35,13 @@ const PersonalDetails = () => {
     //   setNumberValue(value);
     // }
 
-    setNumberValue(value);
+    dispatch(phoneInput(value));
   };
 
-  console.log(nameValue, emailValue, numberValue);
+  const submitHandler = (e) => {
+    e.preventDefault();
+    dispatch(nextStep());
+  };
 
   return (
     <div className={classes.container}>
@@ -40,28 +49,30 @@ const PersonalDetails = () => {
         <h1>Personal Info</h1>
         <p>Please provide your name, email address, and phone number.</p>
       </div>
-      <form>
+      <form onSubmit={submitHandler}>
         <InputWithLabel
           name="name"
           inputType="name"
-          value={nameValue}
+          value={name}
           onChange={handleNameChange}
         />
         <InputWithLabel
           name="email address"
           inputType="email"
-          value={emailValue}
+          value={email}
           onChange={handleEmailChange}
         />
         <InputWithLabel
           name="Phone number"
           inputType="number"
-          value={numberValue}
+          value={phone}
           onChange={handleNumberChange}
         />
-        <div className={classes.buttonWrapper}>
+
+        <Button name="Next Step" />
+        {/* <div className={classes.buttonWrapper}>
           <button>Next Step</button>
-        </div>
+        </div> */}
         {/* <div className={classes.title}>
         <h1>Personal Info</h1>
         <p>Please provide your name, email address, and phone number.</p>

@@ -1,0 +1,87 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 45rem;
+  padding-top: 4rem;
+}
+
+.container h1 {
+  font-weight: 700;
+  font-size: 3.5rem;
+  color: var(--marine-blue);
+  margin: 0;
+  padding: 0;
+}
+.container p {
+  margin: 0.75rem 0 0 0;
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: var(--cool-gray);
+  margin-bottom: 4rem;
+}
+
+.planOptions {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  margin-bottom: 3.1rem;
+}
+
+/* The switch - the box around the slider */
+/* .switch {
+  position: relative;
+  display: inline-block;
+  width: 6rem;
+  height: 3.4px;
+} */
+.containerToggle {
+  position: relative;
+  background-color: var(--alabaster);
+  height: 5rem;
+  border-radius: 0.75rem;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 12.7rem 0 12.7rem;
+  align-items: center;
+}
+
+.containerToggle span {
+  color: var(--cool-gray);
+  font-size: 1.4rem;
+  text-transform: capitalize;
+}
+
+.options {
+  cursor: pointer;
+  border: 1px solid var(--cool-gray);
+  width: 13.8rem;
+  border-radius: 0.75rem;
+  padding: 2rem 1.5rem 2rem 1.5rem;
+}
+
+.selected {
+  border: 1px solid var(--purplish-blue);
+}
+
+.options .free {
+  margin: 0.5rem 0rem 0rem 0rem;
+  color: var(--marine-blue);
+}
+
+.options h2 {
+  color: var(--marine-blue);
+  font-weight: 600;
+  font-size: 1.6rem;
+  margin-bottom: 0.5rem;
+}
+
+.options .term {
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: var(--cool-gray);
+}
+
+.options span {
+  margin-bottom: 0.5rem;
+}

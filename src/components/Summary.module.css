@@ -1,0 +1,81 @@
+.container {
+  width: 45rem;
+  position: relative;
+}
+
+.container > div:first-child {
+  margin: 4rem 0 4rem 0;
+}
+
+.container > div:first-child h1 {
+  font-weight: 700;
+  color: var(--marine-blue);
+  margin: 0 0 1rem 0;
+}
+
+.container > div:first-child p {
+  color: var(--cool-gray);
+  font-size: 1.6rem;
+  margin: 0;
+}
+
+.lists {
+  background-color: var(--alabaster);
+  border-radius: 0.5rem;
+  padding: 2rem 2rem 1rem 2rem;
+}
+
+.planName > span:first-child {
+  color: var(--marine-blue);
+  display: block;
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+.plan {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--light-gray);
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+}
+
+.plan > span:nth-child(2) {
+  color: var(--marine-blue);
+  font-weight: 700;
+  font-size: 1.4rem;
+}
+.planName > span:nth-child(2) {
+  font-size: 1.4rem;
+  text-decoration: underline;
+}
+
+.planName > span:nth-child(2),
+.online,
+.storage,
+.total {
+  color: var(--cool-gray);
+}
+
+.online,
+.storage,
+.total {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.4rem;
+}
+
+.online {
+  margin-bottom: 2.5rem;
+}
+
+.total > span:nth-child(2) {
+  font-size: 1.5rem;
+  color: var(--purplish-blue);
+  font-weight: 700;
+}
+.total {
+  padding: 2rem;
+}

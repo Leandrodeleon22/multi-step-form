@@ -1,0 +1,15 @@
+.buttonWrapper {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  margin-bottom: 20px; /* Adjust the margin value as needed */
+}
+
+.buttonWrapper button {
+  height: 4.5rem;
+  width: 12.3rem;
+  font-weight: 600;
+  color: var(--cool-gray);
+  background-color: transparent;
+  font-size: 1.5rem;
+}
