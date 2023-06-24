@@ -79,3 +79,7 @@
 .total {
   padding: 2rem;
 }
+
+.planName .change {
+  cursor: pointer;
+}

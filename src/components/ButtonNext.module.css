@@ -12,3 +12,7 @@
   background-color: var(--marine-blue);
   font-size: 1.5rem;
 }
+
+.confirm button {
+  background-color: var(--purplish-blue);
+}

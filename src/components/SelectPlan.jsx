@@ -31,7 +31,9 @@ const selectPlan = () => {
   // const { nextStep } = useSelector((store) => store.personalInfo);
 
   const handleClickNext = () => {
-    dispatch(nextStep());
+    if (selected || selected === 0) {
+      dispatch(nextStep());
+    }
   };
 
   const handleClickBack = () => {

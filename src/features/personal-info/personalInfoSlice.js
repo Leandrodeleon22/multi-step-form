@@ -57,8 +57,14 @@ const initialDataPlan = [
 
 const initialState = {
   name: "",
-  phone: "",
   email: "",
+  phone: "",
+  errors: {
+    name: "",
+    email: "",
+    phone: "",
+  },
+  isValid: false,
   step: 1,
   isActive: "active",
   isHidden: "hidden",
@@ -71,21 +77,13 @@ const initialState = {
   selected: null,
   selectedPlan: {},
   toggleMonthlyYearly: false,
+  thankYouComponent: "",
 };
 
 const personalInfoSlice = createSlice({
   name: "personalInfo",
   initialState,
   reducers: {
-    nameInput: (state, actions) => {
-      state.name = actions.payload;
-    },
-    emailInput: (state, actions) => {
-      state.email = actions.payload;
-    },
-    phoneInput: (state, actions) => {
-      state.phone = actions.payload;
-    },
     nextStep: (state) => {
       if (state.step < 4) {
         state.step = state.step + 1;
@@ -124,13 +122,27 @@ const personalInfoSlice = createSlice({
     updateSelectedPlan: (state, actions) => {
       state.selectedPlan = actions.payload;
     },
+    setInputValue: (state, actions) => {
+      const { name, value } = actions.payload;
+      state[name] = value;
+    },
+    setError: (state, actions) => {
+      const { nameInput, errorInput } = actions.payload;
+      state.errors[nameInput] = errorInput;
+    },
+    setIsValid: (state, actions) => {
+      state.isValid = actions.payload;
+    },
+    goToPage: (state, actions) => {
+      state.step = actions.payload;
+    },
+    setThankYouComponent: (state, actions) => {
+      state.thankYouComponent = actions.payload;
+    },
   },
 });
 
 export const {
-  nameInput,
-  emailInput,
-  phoneInput,
   nextStep,
   goBack,
   getSelectedPlan,
@@ -140,6 +152,11 @@ export const {
   updateSelected,
   updateToggleMonthlyYearly,
   updateSelectedPlan,
+  setError,
+  setInputValue,
+  setIsValid,
+  goToPage,
+  setThankYouComponent,
 } = personalInfoSlice.actions;
 
 export default personalInfoSlice.reducer;

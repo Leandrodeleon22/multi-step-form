@@ -2,45 +2,71 @@ import classes from "./PersonalDetails.module.css";
 import InputWithLabel from "./InputWithLabel";
 import { useDispatch, useSelector } from "react-redux";
 import {
-  nameInput,
-  emailInput,
-  phoneInput,
+  setInputValue,
+  setError,
   nextStep,
+  setIsValid,
 } from "../features/personal-info/personalInfoSlice";
 import Button from "./ButtonNext";
+import { useEffect, useRef } from "react";
 
 const PersonalDetails = () => {
   const dispatch = useDispatch();
-  const { name, phone, email } = useSelector((store) => store.personalInfo);
-  // const [nameValue, setNameValue] = useState("");
-  // const [emailValue, setEmailValue] = useState("");
-  // const [numberValue, setNumberValue] = useState("");
+  const { name, phone, email, errors, isValid } = useSelector(
+    (store) => store.personalInfo
+  );
 
-  const handleNameChange = (e) => {
-    const value = e.target.value;
-
-    dispatch(nameInput(value));
-  };
-
-  const handleEmailChange = (e) => {
-    const value = e.target.value;
-
-    dispatch(emailInput(value));
-  };
-
-  const handleNumberChange = (e) => {
-    const value = e.target.value;
-
-    // if (e.target.validity.valid) {
-    //   setNumberValue(value);
-    // }
-
-    dispatch(phoneInput(value));
-  };
+  useEffect(() => {
+    validateInputs();
+  }, [dispatch, name, email, phone]);
 
   const submitHandler = (e) => {
     e.preventDefault();
-    dispatch(nextStep());
+    const isValidCheck = validateInputs();
+
+    if (isValidCheck) {
+      dispatch(nextStep());
+    }
+
+    dispatch(setIsValid(true));
+  };
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    console.log(e.target.name);
+    dispatch(setInputValue({ name, value }));
+  };
+
+  // const handleEmailErrorChange = () => {
+  //   if (email.trim() === "") {
+  //     dispatch(handleEmailError(true));
+  //   }
+  // };
+
+  const validateInputs = () => {
+    if (name === "") {
+      dispatch(setError({ nameInput: "name", errorInput: "name is required" }));
+    } else {
+      dispatch(setError({ nameInput: "name", errorInput: "" }));
+    }
+
+    if (email === "") {
+      dispatch(
+        setError({ nameInput: "email", errorInput: "email is required" })
+      );
+    } else {
+      dispatch(setError({ nameInput: "email", errorInput: "" }));
+    }
+
+    if (phone === "") {
+      dispatch(
+        setError({ nameInput: "phone", errorInput: "phone is required" })
+      );
+    } else {
+      dispatch(setError({ nameInput: "phone", errorInput: "" }));
+    }
+
+    return !errors.name && !errors.email && !errors.phone;
   };
 
   return (
@@ -54,19 +80,22 @@ const PersonalDetails = () => {
           name="name"
           inputType="name"
           value={name}
-          onChange={handleNameChange}
+          onChange={handleInputChange}
+          errorMessage={errors.name}
         />
         <InputWithLabel
           name="email address"
           inputType="email"
           value={email}
-          onChange={handleEmailChange}
+          onChange={handleInputChange}
+          errorMessage={errors.email}
         />
         <InputWithLabel
           name="Phone number"
           inputType="number"
           value={phone}
-          onChange={handleNumberChange}
+          onChange={handleInputChange}
+          errorMessage={errors.phone}
         />
 
         <Button name="Next Step" />
