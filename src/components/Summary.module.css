@@ -83,3 +83,30 @@
 .planName .change {
   cursor: pointer;
 }
+
+@media only screen and (max-width: 23.44em) {
+  .container {
+    width: 32rem;
+    background-color: var(--white);
+    padding: 0 1.5rem 0 1.5rem;
+
+    border-radius: 1rem;
+
+    margin: 0;
+    position: absolute;
+    top: 10rem;
+  }
+
+  .container div:first-child p {
+    display: flex;
+    line-height: 2.5rem;
+  }
+
+  .container div:first-child h1 {
+    margin: 0 0 0 0;
+  }
+
+  .container > div:first-child {
+    margin: 2rem 0 2rem 0;
+  }
+}

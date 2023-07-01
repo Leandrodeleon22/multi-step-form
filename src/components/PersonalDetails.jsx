@@ -9,6 +9,8 @@ import {
 } from "../features/personal-info/personalInfoSlice";
 import Button from "./ButtonNext";
 import { useEffect, useRef } from "react";
+import ButtonNext from "./ButtonNext";
+import ButtonPrevious from "./ButtonPrevious";
 
 const PersonalDetails = () => {
   const dispatch = useDispatch();
@@ -16,20 +18,20 @@ const PersonalDetails = () => {
     (store) => store.personalInfo
   );
 
-  useEffect(() => {
-    validateInputs();
-  }, [dispatch, name, email, phone]);
+  // useEffect(() => {
+  //   validateInputs();
+  // }, [dispatch, name, email, phone]);
 
-  const submitHandler = (e) => {
-    e.preventDefault();
-    const isValidCheck = validateInputs();
+  // const submitHandler = (e) => {
+  //   e.preventDefault();
+  //   const isValidCheck = validateInputs();
 
-    if (isValidCheck) {
-      dispatch(nextStep());
-    }
+  //   if (isValidCheck) {
+  //     dispatch(nextStep());
+  //   }
 
-    dispatch(setIsValid(true));
-  };
+  //   dispatch(setIsValid(true));
+  // };
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -43,31 +45,31 @@ const PersonalDetails = () => {
   //   }
   // };
 
-  const validateInputs = () => {
-    if (name === "") {
-      dispatch(setError({ nameInput: "name", errorInput: "name is required" }));
-    } else {
-      dispatch(setError({ nameInput: "name", errorInput: "" }));
-    }
+  // const validateInputs = () => {
+  //   if (name === "") {
+  //     dispatch(setError({ nameInput: "name", errorInput: "name is required" }));
+  //   } else {
+  //     dispatch(setError({ nameInput: "name", errorInput: "" }));
+  //   }
 
-    if (email === "") {
-      dispatch(
-        setError({ nameInput: "email", errorInput: "email is required" })
-      );
-    } else {
-      dispatch(setError({ nameInput: "email", errorInput: "" }));
-    }
+  //   if (email === "") {
+  //     dispatch(
+  //       setError({ nameInput: "email", errorInput: "email is required" })
+  //     );
+  //   } else {
+  //     dispatch(setError({ nameInput: "email", errorInput: "" }));
+  //   }
 
-    if (phone === "") {
-      dispatch(
-        setError({ nameInput: "phone", errorInput: "phone is required" })
-      );
-    } else {
-      dispatch(setError({ nameInput: "phone", errorInput: "" }));
-    }
+  //   if (phone === "") {
+  //     dispatch(
+  //       setError({ nameInput: "phone", errorInput: "phone is required" })
+  //     );
+  //   } else {
+  //     dispatch(setError({ nameInput: "phone", errorInput: "" }));
+  //   }
 
-    return !errors.name && !errors.email && !errors.phone;
-  };
+  //   return !errors.name && !errors.email && !errors.phone;
+  // };
 
   return (
     <div className={classes.container}>
@@ -75,7 +77,7 @@ const PersonalDetails = () => {
         <h1>Personal Info</h1>
         <p>Please provide your name, email address, and phone number.</p>
       </div>
-      <form onSubmit={submitHandler}>
+      <form>
         <InputWithLabel
           name="name"
           inputType="name"
@@ -98,7 +100,8 @@ const PersonalDetails = () => {
           errorMessage={errors.phone}
         />
 
-        <Button name="Next Step" />
+        {/* <ButtonNext name="Next Step" /> */}
+
         {/* <div className={classes.buttonWrapper}>
           <button>Next Step</button>
         </div> */}

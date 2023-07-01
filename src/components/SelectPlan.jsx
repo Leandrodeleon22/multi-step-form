@@ -36,9 +36,9 @@ const selectPlan = () => {
     }
   };
 
-  const handleClickBack = () => {
-    dispatch(goBack());
-  };
+  // const handleClickBack = () => {
+  //   dispatch(goBack());
+  // };
 
   const handleOptionClick = (index, namePlan, term, termPerMonth, item) => {
     dispatch(updateSelected(index));
@@ -86,34 +86,39 @@ const selectPlan = () => {
       <h1>Select your plan</h1>
       <p>You have the option of monthly or yearly billing.</p>
       <div className={classes.planOptions}>
-        {allDataPlan.map((item, index) => (
-          <div
-            key={item.namePlan}
-            className={`${classes.options} ${
-              selected === index ? classes.selected : ""
-            }`}
-            onClick={() =>
-              handleOptionClick(
-                index,
-                item.namePlan,
-                item.termPerYear,
-                item.termPerMonth,
-                item
-              )
-            }
-          >
-            <img src={item.icon} alt={item.namePlan} />
-            <h2>{item.namePlan}</h2>
-            <span className={classes.term}>
-              {yearlyMonthly === "Yearly"
-                ? `$${item.termPerYear}/yr`
-                : `$${item.termPerMonth}/mo `}
-            </span>
-            <p className={classes.free}>
-              {yearlyMonthly === "Monthly" ? "" : item.free}
-            </p>
-          </div>
-        ))}
+        {allDataPlan.map((item, index) => {
+          let chosenPlan = index + 1;
+          return (
+            <div
+              key={item.namePlan}
+              className={`${classes.options} ${
+                selected === chosenPlan ? classes.selected : ""
+              }`}
+              onClick={() =>
+                handleOptionClick(
+                  chosenPlan,
+                  item.namePlan,
+                  item.termPerYear,
+                  item.termPerMonth,
+                  item
+                )
+              }
+            >
+              <img src={item.icon} alt={item.namePlan} />
+              <div className={classes.planTitle}>
+                <h2>{item.namePlan}</h2>
+                <span className={classes.term}>
+                  {yearlyMonthly === "Yearly"
+                    ? `$${item.termPerYear}/yr`
+                    : `$${item.termPerMonth}/mo `}
+                </span>
+                <p className={classes.free}>
+                  {yearlyMonthly === "Monthly" ? "" : item.free}
+                </p>
+              </div>
+            </div>
+          );
+        })}
       </div>
 
       <div className={classes.containerToggle}>
@@ -125,10 +130,10 @@ const selectPlan = () => {
         />
         <span>yearly</span>
       </div>
-      <div>
-        <ButtonNext name="Next Step" submit={handleClickNext} />
-        <ButtonPrevious submit={handleClickBack} />
-      </div>
+      {/* <div className={classes.nextBtn}> */}
+      {/* <ButtonNext name="Next Step" submit={handleClickNext} /> */}
+      {/* <ButtonPrevious submit={handleClickBack} /> */}
+      {/* </div> */}
     </div>
   );
 };

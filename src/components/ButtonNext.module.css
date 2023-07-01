@@ -1,8 +1,4 @@
 .buttonWrapper {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  margin-bottom: 20px; /* Adjust the margin value as needed */
 }
 
 .buttonWrapper button {
@@ -15,4 +11,7 @@
 
 .confirm button {
   background-color: var(--purplish-blue);
+}
+
+@media only screen and (max-width: 23.44em) {
 }

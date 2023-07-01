@@ -78,6 +78,7 @@ const initialState = {
   selectedPlan: {},
   toggleMonthlyYearly: false,
   thankYouComponent: "",
+  hasPlan: false,
 };
 
 const personalInfoSlice = createSlice({
@@ -139,6 +140,9 @@ const personalInfoSlice = createSlice({
     setThankYouComponent: (state, actions) => {
       state.thankYouComponent = actions.payload;
     },
+    setHasPlan: (state, actions) => {
+      state.hasPlan = actions.payload;
+    },
   },
 });
 
@@ -157,6 +161,7 @@ export const {
   setIsValid,
   goToPage,
   setThankYouComponent,
+  setHasPlan,
 } = personalInfoSlice.actions;
 
 export default personalInfoSlice.reducer;

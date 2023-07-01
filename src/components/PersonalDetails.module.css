@@ -5,6 +5,8 @@
   /* margin-left: 10rem; */
   position: relative;
   width: 45rem;
+
+  /* background-color: aqua; */
 }
 
 .title h1 {
@@ -19,4 +21,28 @@
   margin: 0;
   margin: 1rem 0 4.5rem 0;
   font-size: 1.6rem;
+}
+
+@media only screen and (max-width: 23.44em) {
+  .container {
+    width: 32rem;
+    background-color: var(--white);
+    padding: 0 1.5rem 0 1.5rem;
+    /* transform: translateY(-15%); */
+    border-radius: 1rem;
+    margin: 0 auto;
+    position: absolute;
+    top: 10rem;
+    /* position: static; */
+  }
+
+  .title h1 {
+    margin: 3.7rem 0 1rem 0;
+  }
+
+  .title p {
+    display: flex;
+    margin: 0 0 2.75rem 0;
+    line-height: 2.25rem;
+  }
 }

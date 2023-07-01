@@ -85,7 +85,10 @@ const Summary = () => {
             </div>
 
             <div className={classes.total}>
-              <span>Total (per month) </span>
+              <span>
+                Total{" "}
+                {yearlyMonthly === "Monthly" ? "(per month)" : "(per year)"}
+              </span>
               <span>{`+$${
                 yearlyMonthly === "Monthly"
                   ? totalRatePerMonth + totalRateOfPlan
@@ -93,13 +96,12 @@ const Summary = () => {
               } / ${yearlyMonthly === "Monthly" ? "mo" : "yr"}`}</span>
             </div>
           </div>
-          <div>
+          {/* <div>
             <ButtonNext name="Confirm" submit={handleClickNext} />
             <ButtonPrevious submit={handleClickBack} />
-          </div>
+          </div> */}
         </div>
       )}
-      )
     </>
   );
 };

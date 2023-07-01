@@ -31,7 +31,7 @@
   align-items: center;
   height: 8rem;
   border-radius: 0.75rem;
-  width: 100%;
+  /* width: 100%; */
   padding: 2rem;
 }
 
@@ -99,5 +99,36 @@
     /* color: white; */
     /* text-align: center;
     line-height: 14px; */
+  }
+}
+
+@media only screen and (max-width: 23.44em) {
+  .container {
+    width: 32rem;
+    background-color: var(--white);
+    padding: 0 1.5rem 0 1.5rem;
+
+    border-radius: 1rem;
+
+    position: absolute;
+    top: 10rem;
+  }
+
+  .head {
+    margin: 2rem 0 0 0;
+  }
+  .head p {
+    display: flex;
+    font-size: 1.7rem;
+    line-height: 2.5rem;
+    margin: 0 0 2rem 0;
+  }
+
+  .checkBox {
+    height: 6rem;
+  }
+
+  .container div:last-child {
+    margin: 0 0 3rem 0;
   }
 }

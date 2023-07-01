@@ -55,3 +55,9 @@ input:-webkit-autofill:active {
 input:-webkit-autofill {
   -webkit-text-fill-color: var(--cool-gray) !important;
 }
+
+@media only screen and (max-width: 23.44em) {
+  .errorText {
+    display: flex;
+  }
+}

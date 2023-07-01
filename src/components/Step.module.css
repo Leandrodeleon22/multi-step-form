@@ -39,3 +39,14 @@
   background-color: var(--pastel-blue);
   color: var(--marine-blue);
 }
+
+@media only screen and (max-width: 23.44em) {
+  div p,
+  .text {
+    display: none;
+  }
+
+  .container {
+    margin: 3rem 0 0 0;
+  }
+}

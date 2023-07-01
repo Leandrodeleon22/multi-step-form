@@ -22,3 +22,28 @@
   line-height: 2rem;
   font-weight: 400;
 }
+
+@media only screen and (max-width: 23.44em) {
+  .container {
+    width: 32rem;
+    background-color: var(--white);
+    padding: 6rem 2rem 6rem 2rem;
+
+    border-radius: 1rem;
+
+    margin: 0;
+    position: absolute;
+    top: 10rem;
+  }
+
+  .container div p {
+    display: flex;
+    font-size: 1.8rem;
+    line-height: 2.5rem;
+  }
+
+  .container img {
+    width: 7rem;
+    height: 7rem;
+  }
+}

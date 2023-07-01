@@ -1,9 +1,40 @@
 .container {
   display: flex;
   background-color: var(--white);
+
   /* width: 94rem; */
   height: 60rem;
   border-radius: 1rem;
   /* overflow: hidden; */
   padding: 1.5rem 10rem 1.5rem 1.5rem;
+  position: relative;
+}
+
+.btnContainer {
+  display: flex;
+  /* background-color: red; */
+  width: 45rem;
+  justify-content: space-between;
+  position: absolute;
+  right: 10rem;
+  top: 50rem;
+}
+
+@media only screen and (max-width: 23.44em) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    background-color: var(--magnolia);
+    height: 100vh;
+  }
+  .btnContainer {
+    right: 0;
+    width: 100%;
+
+    top: 59rem;
+    bottom: 0;
+    padding: 2rem 2rem 0 2rem;
+  }
 }

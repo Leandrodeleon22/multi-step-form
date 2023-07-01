@@ -19,15 +19,15 @@ const AddOns = () => {
 
   // const [data, setIsData] = useState(initialData);
 
-  const handleClickNext = () => {
-    dispatch(nextStep());
+  // const handleClickNext = () => {
+  //   dispatch(nextStep());
 
-    const checkedData = allAddOns.filter((item) => {
-      return item.isChecked;
-    });
+  //   const checkedData = allAddOns.filter((item) => {
+  //     return item.isChecked;
+  //   });
 
-    dispatch(getAddOns(checkedData));
-  };
+  //   dispatch(getAddOns(checkedData));
+  // };
 
   const handleClickBack = () => {
     dispatch(goBack());
@@ -109,10 +109,10 @@ const AddOns = () => {
               yearlyMonthly === "Monthly" ? item.ratePerMonth : item.ratePerYear
             }/ ${yearlyMonthly === "Monthly" ? "mo" : "yr"}`}</span>
 
-            <div>
+            {/* <div>
               <ButtonNext name="Next Step" submit={handleClickNext} />
               <ButtonPrevious submit={handleClickBack} />
-            </div>
+            </div> */}
           </div>
         );
       })}
