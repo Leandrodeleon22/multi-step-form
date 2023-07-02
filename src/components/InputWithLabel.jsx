@@ -1,17 +1,11 @@
 import classes from "./InputWithLabel.module.css";
 import { useSelector } from "react-redux";
 
-const InputWithLabel = ({
-  name,
-  value,
-  onChange,
-  inputType,
-  errorMessage,
-  pattern,
-}) => {
+const InputWithLabel = ({ name, value, onChange, inputType, errorMessage }) => {
   const { isValid } = useSelector((store) => store.personalInfo);
   let inputElement;
   const inputEmail = name.split(" ")[0];
+
   const inputPhone = name.split(" ")[0].toLowerCase();
   if (inputType === "name") {
     inputElement = (
@@ -46,8 +40,8 @@ const InputWithLabel = ({
       <input
         name={inputPhone}
         id={name}
-        type="text"
-        pattern={pattern}
+        type="tel"
+        pattern="^-?[1-9]\d*\.?\d*$"
         value={value}
         onChange={onChange}
         className={`${classes.input} ${

@@ -45,9 +45,21 @@ const PersonalInfo = () => {
       dispatch(setError({ nameInput: "name", errorInput: "" }));
     }
 
-    if (email === "") {
+    const emailRegex =
+      /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+
+    console.log(emailRegex.test(email));
+
+    if (email === "" || !emailRegex.test(email)) {
       dispatch(
-        setError({ nameInput: "email", errorInput: "email is required" })
+        setError({
+          nameInput: "email",
+          errorInput: `${
+            !emailRegex.test(email) && email !== ""
+              ? "invalid email"
+              : "email is required"
+          } `,
+        })
       );
     } else {
       dispatch(setError({ nameInput: "email", errorInput: "" }));

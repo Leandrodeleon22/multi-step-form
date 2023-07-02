@@ -8,13 +8,13 @@ import {
   setIsValid,
 } from "../features/personal-info/personalInfoSlice";
 import Button from "./ButtonNext";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import ButtonNext from "./ButtonNext";
 import ButtonPrevious from "./ButtonPrevious";
 
 const PersonalDetails = () => {
   const dispatch = useDispatch();
-  const { name, phone, email, errors, isValid } = useSelector(
+  const { name, phone, email, errors } = useSelector(
     (store) => store.personalInfo
   );
 
@@ -38,6 +38,12 @@ const PersonalDetails = () => {
 
     if (e.target.validity.valid) dispatch(setInputValue({ name, value }));
     else if (value === "") dispatch(setInputValue({ name, value }));
+  };
+
+  const handleInputChangeEmail = (e) => {
+    const { name, value } = e.target;
+
+    dispatch(setInputValue({ name, value }));
   };
 
   // const handleEmailErrorChange = () => {
@@ -81,6 +87,7 @@ const PersonalDetails = () => {
       <form>
         <InputWithLabel
           name="name"
+          id={name}
           inputType="name"
           value={name}
           onChange={handleInputChange}
@@ -88,16 +95,17 @@ const PersonalDetails = () => {
         />
         <InputWithLabel
           name="email address"
+          id={name}
           inputType="email"
           value={email}
-          onChange={handleInputChange}
+          onChange={handleInputChangeEmail}
           errorMessage={errors.email}
         />
         <InputWithLabel
           name="Phone number"
+          id={name}
           inputType="tel"
           value={phone}
-          pattern="^-?[1-9]\d*\.?\d*$"
           onChange={handleInputChange}
           errorMessage={errors.phone}
         />
