@@ -35,8 +35,9 @@ const PersonalDetails = () => {
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    console.log(e.target.name);
-    dispatch(setInputValue({ name, value }));
+
+    if (e.target.validity.valid) dispatch(setInputValue({ name, value }));
+    else if (value === "") dispatch(setInputValue({ name, value }));
   };
 
   // const handleEmailErrorChange = () => {
@@ -94,8 +95,9 @@ const PersonalDetails = () => {
         />
         <InputWithLabel
           name="Phone number"
-          inputType="number"
+          inputType="tel"
           value={phone}
+          pattern="^-?[1-9]\d*\.?\d*$"
           onChange={handleInputChange}
           errorMessage={errors.phone}
         />
